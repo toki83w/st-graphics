@@ -234,26 +234,26 @@ static char *copyurlcmd[] = { "/bin/sh", "-c", "st-copyurl", "externalpipe", NUL
 static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
 
 static Shortcut shortcuts[] = {
-	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Page_Up,     zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Page_Down,   zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ TERMMOD,              XK_Escape,      keyboard_select,{.i =  0} },
-	{ TERMMOD,              XK_F1,          togglegrdebug,  {.i =  0} },
-	{ TERMMOD,              XK_F6,          dumpgrstate,    {.i =  0} },
-	{ TERMMOD,              XK_F7,          unloadimages,   {.i =  0} },
-	{ TERMMOD,              XK_F8,          toggleimages,   {.i =  0} },
-	{ TERMMOD,              XK_U,           externalpipe,   {.v = copyurlcmd } },
-	{ TERMMOD,              XK_O,           externalpipe,   {.v = copyoutput } },
+	/* mask                 keysym          function        argument            skipaltscreen */
+	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0},          0 },
+	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0},          0 },
+	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0},          0 },
+	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0},          0 },
+	{ TERMMOD,              XK_Page_Up,     zoom,           {.f = +1},          0 },
+	{ TERMMOD,              XK_Page_Down,   zoom,           {.f = -1},          0 },
+	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0},          0 },
+	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0},          0 },
+	{ TERMMOD,              XK_V,           clippaste,      {.i =  0},          0 },
+	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0},          0 },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1},          1 },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1},          1 },
+	{ TERMMOD,              XK_Escape,      keyboard_select,{.i =  0},          0 },
+	{ TERMMOD,              XK_F1,          togglegrdebug,  {.i =  0},          0 },
+	{ TERMMOD,              XK_F6,          dumpgrstate,    {.i =  0},          0 },
+	{ TERMMOD,              XK_F7,          unloadimages,   {.i =  0},          0 },
+	{ TERMMOD,              XK_F8,          toggleimages,   {.i =  0},          0 },
+	{ TERMMOD,              XK_U,           externalpipe,   {.v = copyurlcmd }, 0 },
+	{ TERMMOD,              XK_O,           externalpipe,   {.v = copyoutput }, 0 },
 };
 
 /*
