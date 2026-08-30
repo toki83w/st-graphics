@@ -30,6 +30,7 @@ typedef struct {
 	KeySym keysym;
 	void (*func)(const Arg *);
 	const Arg arg;
+	int skipaltscreen; /* if non-zero, skip shortcut when altscreen is active */
 } Shortcut;
 
 typedef struct {
@@ -2297,6 +2298,8 @@ kpress(XEvent *ev)
 	/* 1. shortcuts */
 	for (bp = shortcuts; bp < shortcuts + LEN(shortcuts); bp++) {
 		if (ksym == bp->keysym && match(bp->mod, e->state)) {
+			if (bp->skipaltscreen && tisaltscr())
+				continue;
 			bp->func(&(bp->arg));
 			return;
 		}

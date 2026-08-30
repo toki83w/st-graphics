@@ -1171,6 +1171,12 @@ kscrolldown(const Arg *a)
 	tfulldirt();
 }
 
+int
+tisaltscr(void)
+{
+	return IS_SET(MODE_ALTSCREEN);
+}
+
 void
 tscrolldown(int orig, int n)
 {
